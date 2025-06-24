@@ -1,5 +1,5 @@
 event-booking-app/
 ├── client/     ← React app
-├── server/     ← Node.js backend
+├── server/     ← Node.js backend 
 ├── README.md
 ├── .gitignore
