@@ -1,5 +1,8 @@
 event-booking-app/
-├── client/     ← React app
+├── client/     ← React application
 ├── server/     ← Node.js backend 
 ├── README.md
 ├── .gitignore
+
+
+It will keep updating
