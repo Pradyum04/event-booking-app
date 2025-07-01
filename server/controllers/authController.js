@@ -1,7 +1,6 @@
 // controllers/authController.js
 const jwt = require('jsonwebtoken');
 
-// This simulates a temporary in-memory database
 const mockUsers = [];
 
 const registerUser = (req, res) => {
@@ -16,7 +15,7 @@ const registerUser = (req, res) => {
     id: Date.now(),
     name,
     email,
-    password // Note: plain password here, we'll hash it when we connect MongoDB
+    password
   };
 
   mockUsers.push(newUser);
@@ -32,8 +31,11 @@ const loginUser = (req, res) => {
     return res.status(401).json({ message: 'Invalid credentials' });
   }
 
-  // Generate token
-  const token = jwt.sign({ id: user.id, email: user.email }, 'secretKey', { expiresIn: '1h' });
+  const token = jwt.sign(
+    { id: user.id, email: user.email },
+    'mySuperSecret123', // ✅ MATCH THIS
+    { expiresIn: '1h' }
+  );
 
   res.status(200).json({ message: 'Login successful', token });
 };
